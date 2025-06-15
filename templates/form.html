@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dr. Breakup</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #ffe6e6, #e6f2ff);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            font-size: 42px;
+            color: #e60073;
+            font-weight: 800;
+            margin-top: 30px;
+            text-shadow: 2px 2px 5px #aaa;
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 35px 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 520px;
+            margin: 30px auto;
+            animation: fadeIn 1s ease;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #4da6ff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(77, 166, 255, 0.3);
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #4da6ff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1a8cff;
+        }
+
+        .watermark {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media screen and (max-width: 600px) {
+            .form-container {
+                padding: 25px;
+            }
+
+            .header {
+                font-size: 32px;
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">💖 Dr. Breakup - Relationship Analyzer 💖</div>
+
+    <div class="form-container">
+        <form action="/predict" method="post">
+            <label>Relationship Duration (months):</label>
+            <input type="number" name="relationship_duration" required>
+
+            <label>Communication Frequency:</label>
+            <select name="communication_frequency" required>
+                <option value="" disabled selected>Select frequency</option>
+                <option value="Rarely">Rarely</option>
+                <option value="Occasionally">Occasionally</option>
+                <option value="Frequently">Frequently</option>
+                <option value="Always">Always</option>
+            </select>
+
+            <label>Fights Per Week:</label>
+            <input type="number" name="fights_per_week" required>
+
+            <label>Trust Score (1-10):</label>
+            <input type="number" name="trust_score" min="1" max="10" required>
+
+            <label>Affection Score (1-10):</label>
+            <input type="number" name="affection_score" min="1" max="10" required>
+
+            <label>Cheating Suspected?</label>
+            <select name="cheating_suspected" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label>Future Plans?</label>
+            <select name="future_plans" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label>Time Spent Per Week (hrs):</label>
+            <input type="number" name="time_spent_per_week" required>
+
+            <label>Emotional Support Score:</label>
+            <input type="number" name="emotional_support_score" min="1" max="10" required>
+
+            <label>Jealousy Level (1-10):</label>
+            <input type="number" name="jealousy_level" min="1" max="10" required>
+
+            <label>Communication Quality:</label>
+            <select name="communication_quality" required>
+                <option value="" disabled selected>Select quality</option>
+                <option value="Poor">Poor</option>
+                <option value="Average">Average</option>
+                <option value="Good">Good</option>
+                <option value="Excellent">Excellent</option>
+            </select>
+
+            <label>Age Difference:</label>
+            <input type="number" name="age_difference" required>
+
+            <input type="submit" value="💌 Predict My Relationship">
+        </form>
+    </div>
+
+    <div class="watermark">
+        Made with ❤️ by Parthip R R
+    </div>
+
+</body>
+</html>

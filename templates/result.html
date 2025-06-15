@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Breakup Prediction Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #ffe0e9, #e0f7fa);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .result-box {
+            background-color: white;
+            padding: 40px 50px;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 550px;
+            width: 90%;
+            animation: fadeIn 0.9s ease-in-out;
+        }
+
+        h2 {
+            color: #222;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .prediction {
+            font-size: 22px;
+            margin: 20px 0;
+            color: #0066cc;
+        }
+
+        .probabilities {
+            margin-top: 25px;
+            font-size: 18px;
+        }
+
+        .probabilities span {
+            display: block;
+            margin: 8px 0;
+        }
+
+        .breakup {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+
+        .no-breakup {
+            color: #388e3c;
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 24px;
+            background-color: #4da6ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #1a8cff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .watermark {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #888;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-box">
+        <h2>🔮 Breakup Prediction Result</h2>
+       <p class="prediction"><strong>Chance of Breakup:</strong>
+    {% if result == "1" or result == 1 %}
+        High Risk of Breakup 💔
+    {% else %}
+        Low Risk of Breakup 💖
+    {% endif %}
+</p>
+
+
+        <div class="probabilities">
+            <span class="no-breakup">💖 Probability of No Breakup: {{ no }}%</span>
+            <span class="breakup">💔 Probability of Breakup: {{ yes }}%</span>
+        </div>
+
+        <a href="/">🔙 Go Back</a>
+    </div>
+    <div class="watermark">
+        Made with ❤️ by Parthip R R
+    </div>
+</body>
+</html>
